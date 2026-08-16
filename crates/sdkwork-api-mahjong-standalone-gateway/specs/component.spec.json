@@ -20,7 +20,7 @@
     "layerRole": "runtime-gateway",
     "publicExports": [],
     "requiredPorts": [
-      { "name": "applicationApiAssembly", "export": "sdkwork-api-mahjong-assembly" }
+      { "name": "applicationApiAssembly", "export": "sdkwork_api_mahjong_assembly::assemble_api_router", "provider": "sdkwork-api-mahjong-assembly" }
     ],
     "runtimeEntrypoints": ["src/main.rs"],
     "sdkDependencies": [],
