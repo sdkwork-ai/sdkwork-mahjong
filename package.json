@@ -47,7 +47,9 @@
     "_sdkwork:check": "pnpm run check:app-composition && node scripts/sdkwork-command.mjs check",
     "_sdkwork:verify": "node scripts/sdkwork-verify.mjs && pnpm run check:app-composition",
     "_sdkwork:clean": "node scripts/sdkwork-command.mjs clean",
-    "dev:browser:postgres:standalone": "pnpm exec sdkwork-app dev --runtime-target browser --deployment-profile standalone"
+    "dev:browser:postgres:standalone": "pnpm exec sdkwork-app dev --runtime-target browser --deployment-profile standalone",
+    "db:postgres:plan": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . plan --engine postgres",
+    "db:postgres:init": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . init --engine postgres"
   },
   "devDependencies": {
     "@sdkwork/utils": "workspace:*",
