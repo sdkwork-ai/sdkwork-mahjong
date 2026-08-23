@@ -1,0 +1,17 @@
+# Adaptive Web roots for sdkwork-mahjong (copy into runtime config when in-process).
+# Docker entrypoint generates /etc/sdkwork/webserver/module-app-roots/sdkwork-mahjong.toml
+
+[app_roots]
+tablet_surface = "pc"
+
+[app_roots.pc_static_by_environment]
+development = "apps/sdkwork-mahjong-pc/dist/dev"
+test = "apps/sdkwork-mahjong-pc/dist/test"
+staging = "apps/sdkwork-mahjong-pc/dist/staging"
+production = "apps/sdkwork-mahjong-pc/dist/prod"
+
+[app_roots.static_fallback_by_environment]
+development = "deployments/webserver/static"
+test = "deployments/webserver/static"
+staging = "deployments/webserver/static"
+production = "deployments/webserver/static"
