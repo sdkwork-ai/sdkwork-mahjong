@@ -77,7 +77,15 @@
             "mahjong-dev.dtupay.com",
             "mahjong-dev.sdkwork.cn",
             "mahjong-dev.birdcoder.cn",
-            "mahjong-dev.dtupay.cn"
+            "mahjong-dev.dtupay.cn",
+            "mahjong-dev.skubc.com",
+            "mahjong-dev.skubc.cn",
+            "mahjong-dev.zowalk.com",
+            "mahjong-dev.zowalk.cn",
+            "mahjong-dev.offer86.com",
+            "mahjong-dev.offer86.cn",
+            "mahjong-dev.86offer.com",
+            "mahjong-dev.86offer.cn"
           ]
         },
         "test": {
@@ -87,7 +95,15 @@
             "mahjong-test.dtupay.com",
             "mahjong-test.sdkwork.cn",
             "mahjong-test.birdcoder.cn",
-            "mahjong-test.dtupay.cn"
+            "mahjong-test.dtupay.cn",
+            "mahjong-test.skubc.com",
+            "mahjong-test.skubc.cn",
+            "mahjong-test.zowalk.com",
+            "mahjong-test.zowalk.cn",
+            "mahjong-test.offer86.com",
+            "mahjong-test.offer86.cn",
+            "mahjong-test.86offer.com",
+            "mahjong-test.86offer.cn"
           ]
         },
         "staging": {
@@ -97,7 +113,15 @@
             "mahjong-staging.dtupay.com",
             "mahjong-staging.sdkwork.cn",
             "mahjong-staging.birdcoder.cn",
-            "mahjong-staging.dtupay.cn"
+            "mahjong-staging.dtupay.cn",
+            "mahjong-staging.skubc.com",
+            "mahjong-staging.skubc.cn",
+            "mahjong-staging.zowalk.com",
+            "mahjong-staging.zowalk.cn",
+            "mahjong-staging.offer86.com",
+            "mahjong-staging.offer86.cn",
+            "mahjong-staging.86offer.com",
+            "mahjong-staging.86offer.cn"
           ]
         }
       },
@@ -107,7 +131,15 @@
         "mahjong.dtupay.com",
         "mahjong.sdkwork.cn",
         "mahjong.birdcoder.cn",
-        "mahjong.dtupay.cn"
+        "mahjong.dtupay.cn",
+        "mahjong.skubc.com",
+        "mahjong.skubc.cn",
+        "mahjong.zowalk.com",
+        "mahjong.zowalk.cn",
+        "mahjong.offer86.com",
+        "mahjong.offer86.cn",
+        "mahjong.86offer.com",
+        "mahjong.86offer.cn"
       ]
     },
     "platform.api-gateway": {
@@ -120,7 +152,15 @@
             "api-dev.dtupay.com",
             "api-dev.sdkwork.cn",
             "api-dev.birdcoder.cn",
-            "api-dev.dtupay.cn"
+            "api-dev.dtupay.cn",
+            "api-dev.skubc.com",
+            "api-dev.skubc.cn",
+            "api-dev.zowalk.com",
+            "api-dev.zowalk.cn",
+            "api-dev.offer86.com",
+            "api-dev.offer86.cn",
+            "api-dev.86offer.com",
+            "api-dev.86offer.cn"
           ]
         },
         "test": {
@@ -130,7 +170,15 @@
             "api-test.dtupay.com",
             "api-test.sdkwork.cn",
             "api-test.birdcoder.cn",
-            "api-test.dtupay.cn"
+            "api-test.dtupay.cn",
+            "api-test.skubc.com",
+            "api-test.skubc.cn",
+            "api-test.zowalk.com",
+            "api-test.zowalk.cn",
+            "api-test.offer86.com",
+            "api-test.offer86.cn",
+            "api-test.86offer.com",
+            "api-test.86offer.cn"
           ]
         },
         "staging": {
@@ -140,7 +188,15 @@
             "api-staging.dtupay.com",
             "api-staging.sdkwork.cn",
             "api-staging.birdcoder.cn",
-            "api-staging.dtupay.cn"
+            "api-staging.dtupay.cn",
+            "api-staging.skubc.com",
+            "api-staging.skubc.cn",
+            "api-staging.zowalk.com",
+            "api-staging.zowalk.cn",
+            "api-staging.offer86.com",
+            "api-staging.offer86.cn",
+            "api-staging.86offer.com",
+            "api-staging.86offer.cn"
           ]
         }
       },
@@ -150,7 +206,15 @@
         "api.dtupay.com",
         "api.sdkwork.cn",
         "api.birdcoder.cn",
-        "api.dtupay.cn"
+        "api.dtupay.cn",
+        "api.skubc.com",
+        "api.skubc.cn",
+        "api.zowalk.com",
+        "api.zowalk.cn",
+        "api.offer86.com",
+        "api.offer86.cn",
+        "api.86offer.com",
+        "api.86offer.cn"
       ]
     }
   },
