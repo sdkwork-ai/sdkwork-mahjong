@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "workspace": "sdkwork-mahjong-backend-sdk",
+  "sdkName": "sdkwork-mahjong-backend-sdk",
+  "sdkFamily": "sdkwork-mahjong-backend-sdk",
+  "sdkType": "backend",
+  "sdkOwner": "sdkwork-mahjong",
+  "apiAuthority": "sdkwork-mahjong-backend-api",
+  "sourceAuthoritySpec": "../../apis/backend-api/game/mahjong-backend-api.openapi.json",
+  "authoritySpec": "openapi/sdkwork-mahjong-backend-api.openapi.json",
+  "generationInputSpec": "openapi/sdkwork-mahjong-backend-api.sdkgen.json",
+  "derivedSpecs": {
+    "default": "openapi/sdkwork-mahjong-backend-api.sdkgen.json"
+  },
+  "discoverySurface": {
+    "sdkTarget": "backend",
+    "apiPrefix": "/backend/v3/api",
+    "generatedProtocols": [
+      "http-openapi"
+    ],
+    "manualTransports": []
+  },
+  "sdkDependencies": [],
+  "generatorName": "@sdkwork/sdk-generator",
+  "standardProfile": "sdkwork-v3",
+  "ownerOnlyOperationCount": 2
+}

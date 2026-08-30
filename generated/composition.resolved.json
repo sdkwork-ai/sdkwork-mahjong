@@ -11,17 +11,449 @@
       "runtimeMode": "same-origin-embedded",
       "mountStatus": null,
       "envKey": "VITE_SDKWORK_MAHJONG_APP_API_BASE_URL",
-      "forbidProductSameOriginFallback": false,
+      "forbidApplicationSameOriginFallback": false,
+      "sdkOwner": "sdkwork-mahjong",
+      "apiAuthority": "sdkwork-mahjong-app-api",
+      "consumerSdkOwner": "sdkwork-mahjong",
       "corePackage": "sdkwork-mahjong-pc-core",
       "source": "apps/sdkwork-mahjong-pc/packages/sdkwork-mahjong-pc-core/specs/component.spec.json"
     }
   ],
   "permissions": {
     "inheritanceMode": "module-catalog-with-overrides",
-    "inheritedManifests": []
+    "inheritedManifests": [
+      {
+        "workspace": "sdkwork-mahjong-app-sdk",
+        "manifestRef": "specs/iam.module.manifest.json",
+        "inheritPermissions": true
+      }
+    ]
+  },
+  "architecture": {
+    "components": [
+      {
+        "name": "sdkwork-mahjong-pc-core",
+        "type": "typescript-package",
+        "root": "apps/sdkwork-mahjong-pc/packages/sdkwork-mahjong-pc-core",
+        "domain": "mahjong",
+        "capability": "core",
+        "surface": "app",
+        "languages": [
+          "typescript"
+        ],
+        "source": "apps/sdkwork-mahjong-pc/packages/sdkwork-mahjong-pc-core/specs/component.spec.json",
+        "layerRole": null,
+        "publicExports": [],
+        "providedPorts": [],
+        "requiredPorts": [],
+        "sdkDependencies": [
+          {
+            "workspace": "sdkwork-mahjong-app-sdk",
+            "surface": "app-api",
+            "credentialMode": "authenticated-app-api"
+          }
+        ],
+        "routeManifest": null,
+        "runtimeEntrypoints": [],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-api-mahjong-assembly",
+        "type": "rust-api-assembly",
+        "root": "crates/sdkwork-api-mahjong-assembly",
+        "domain": "game",
+        "capability": "api-assembly",
+        "surface": "api-assembly",
+        "languages": [
+          "rust"
+        ],
+        "source": "crates/sdkwork-api-mahjong-assembly/specs/component.spec.json",
+        "layerRole": "runtime-composition",
+        "publicExports": [
+          "."
+        ],
+        "providedPorts": [],
+        "requiredPorts": [],
+        "sdkDependencies": [],
+        "routeManifest": "assembly-manifest.json",
+        "runtimeEntrypoints": [],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-api-mahjong-standalone-gateway",
+        "type": "rust-api-standalone-gateway",
+        "root": "crates/sdkwork-api-mahjong-standalone-gateway",
+        "domain": "game",
+        "capability": "api-gateway",
+        "surface": "gateway-api",
+        "languages": [
+          "rust"
+        ],
+        "source": "crates/sdkwork-api-mahjong-standalone-gateway/specs/component.spec.json",
+        "layerRole": "runtime-gateway",
+        "publicExports": [],
+        "providedPorts": [],
+        "requiredPorts": [
+          {
+            "name": "applicationApiAssembly",
+            "export": "sdkwork_api_mahjong_assembly::assemble_api_router",
+            "provider": "sdkwork-api-mahjong-assembly"
+          }
+        ],
+        "sdkDependencies": [],
+        "routeManifest": null,
+        "runtimeEntrypoints": [
+          "src/main.rs"
+        ],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-mahjong-database-host",
+        "type": "rust-crate",
+        "root": "crates/sdkwork-mahjong-database-host",
+        "domain": "game",
+        "capability": "database-host",
+        "surface": "database-host",
+        "languages": [
+          "rust"
+        ],
+        "source": "crates/sdkwork-mahjong-database-host/specs/component.spec.json",
+        "layerRole": "runtime-service-host",
+        "publicExports": [
+          "."
+        ],
+        "providedPorts": [],
+        "requiredPorts": [],
+        "sdkDependencies": [],
+        "routeManifest": null,
+        "runtimeEntrypoints": [
+          "bootstrap_mahjong_database_from_env"
+        ],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-routes-mahjong-app-api",
+        "type": "rust-route-crate",
+        "root": "crates/sdkwork-routes-mahjong-app-api",
+        "domain": "game",
+        "capability": "match",
+        "surface": "app-api",
+        "languages": [
+          "rust"
+        ],
+        "source": "crates/sdkwork-routes-mahjong-app-api/specs/component.spec.json",
+        "layerRole": "backend-route",
+        "publicExports": [
+          "."
+        ],
+        "providedPorts": [],
+        "requiredPorts": [
+          "sdkwork-mahjong-match-service"
+        ],
+        "sdkDependencies": [],
+        "routeManifest": "sdks/_route-manifests/app-api/sdkwork-routes-mahjong-app-api.route-manifest.json",
+        "runtimeEntrypoints": [
+          "gateway_mount",
+          "gateway_route_manifest",
+          "routes"
+        ],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-routes-mahjong-backend-api",
+        "type": "rust-route-crate",
+        "root": "crates/sdkwork-routes-mahjong-backend-api",
+        "domain": "game",
+        "capability": "match",
+        "surface": "backend-api",
+        "languages": [
+          "rust"
+        ],
+        "source": "crates/sdkwork-routes-mahjong-backend-api/specs/component.spec.json",
+        "layerRole": "backend-route",
+        "publicExports": [
+          "."
+        ],
+        "providedPorts": [],
+        "requiredPorts": [
+          "sdkwork-mahjong-match-service"
+        ],
+        "sdkDependencies": [],
+        "routeManifest": "sdks/_route-manifests/backend-api/sdkwork-routes-mahjong-backend-api.route-manifest.json",
+        "runtimeEntrypoints": [
+          "gateway_mount",
+          "gateway_route_manifest",
+          "routes"
+        ],
+        "dependencyApiSurfaces": []
+      },
+      {
+        "name": "sdkwork-mahjong-workspace",
+        "type": "application-workspace",
+        "root": "sdkwork-mahjong",
+        "domain": "game",
+        "capability": "workspace",
+        "surface": null,
+        "languages": [
+          "typescript",
+          "rust"
+        ],
+        "source": "specs/component.spec.json",
+        "layerRole": null,
+        "publicExports": [
+          "."
+        ],
+        "providedPorts": [],
+        "requiredPorts": [],
+        "sdkDependencies": [],
+        "routeManifest": "crates/sdkwork-api-mahjong-assembly/assembly-manifest.json",
+        "runtimeEntrypoints": [
+          "package.json#scripts.dev",
+          "package.json#scripts.verify"
+        ],
+        "dependencyApiSurfaces": []
+      }
+    ],
+    "frontend": {
+      "packages": [
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-arena",
+          "name": "sdkwork-mahjong-pc-arena",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-auth",
+          "name": "sdkwork-mahjong-pc-auth",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-claws",
+          "name": "sdkwork-mahjong-pc-claws",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-commons",
+          "name": "sdkwork-mahjong-pc-commons",
+          "role": "commons"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-compute",
+          "name": "sdkwork-mahjong-pc-compute",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-core",
+          "name": "sdkwork-mahjong-pc-core",
+          "role": "core"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-dashboard",
+          "name": "sdkwork-mahjong-pc-dashboard",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-i18n",
+          "name": "sdkwork-mahjong-pc-i18n",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-mall",
+          "name": "sdkwork-mahjong-pc-mall",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-quiz",
+          "name": "sdkwork-mahjong-pc-quiz",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-recharge",
+          "name": "sdkwork-mahjong-pc-recharge",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-ringmatch",
+          "name": "sdkwork-mahjong-pc-ringmatch",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-user",
+          "name": "sdkwork-mahjong-pc-user",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-vip",
+          "name": "sdkwork-mahjong-pc-vip",
+          "role": "capability"
+        },
+        {
+          "appRoot": "apps/sdkwork-mahjong-pc",
+          "architecture": "pc",
+          "directoryName": "sdkwork-mahjong-pc-wallet",
+          "name": "sdkwork-mahjong-pc-wallet",
+          "role": "capability"
+        }
+      ]
+    },
+    "rust": {
+      "crates": [
+        {
+          "packageName": "sdkwork-api-mahjong-assembly",
+          "manifest": "crates/sdkwork-api-mahjong-assembly/Cargo.toml",
+          "dependencies": [
+            "axum",
+            "tokio",
+            "sdkwork-web-bootstrap",
+            "sdkwork-web-core",
+            "sdkwork-mahjong-match-repository-sqlx",
+            "sdkwork-mahjong-match-service",
+            "sdkwork-mahjong-database-host",
+            "sdkwork-database-sqlx",
+            "sqlx",
+            "tracing",
+            "sdkwork-routes-mahjong-app-api",
+            "sdkwork-routes-mahjong-backend-api"
+          ]
+        },
+        {
+          "packageName": "sdkwork-api-mahjong-standalone-gateway",
+          "manifest": "crates/sdkwork-api-mahjong-standalone-gateway/Cargo.toml",
+          "dependencies": [
+            "axum",
+            "sdkwork-api-mahjong-assembly",
+            "sdkwork-web-bootstrap",
+            "sdkwork-iam-web-adapter",
+            "sdkwork-utils-rust",
+            "tokio",
+            "tracing",
+            "tracing-subscriber"
+          ]
+        },
+        {
+          "packageName": "sdkwork-mahjong-database-host",
+          "manifest": "crates/sdkwork-mahjong-database-host/Cargo.toml",
+          "dependencies": [
+            "dotenvy",
+            "sdkwork-database-config",
+            "sdkwork-database-lifecycle",
+            "sdkwork-database-spi",
+            "sdkwork-database-sqlx"
+          ]
+        },
+        {
+          "packageName": "sdkwork-mahjong-match-repository-sqlx",
+          "manifest": "crates/sdkwork-mahjong-match-repository-sqlx/Cargo.toml",
+          "dependencies": [
+            "async-trait",
+            "sdkwork-database-sqlx",
+            "sdkwork-mahjong-match-service",
+            "sdkwork-utils-rust",
+            "serde",
+            "sqlx",
+            "tokio"
+          ]
+        },
+        {
+          "packageName": "sdkwork-mahjong-match-service",
+          "manifest": "crates/sdkwork-mahjong-match-service/Cargo.toml",
+          "dependencies": [
+            "async-trait",
+            "sdkwork-utils-rust",
+            "serde",
+            "serde-json",
+            "pretty-assertions",
+            "tokio"
+          ]
+        },
+        {
+          "packageName": "sdkwork-routes-mahjong-app-api",
+          "manifest": "crates/sdkwork-routes-mahjong-app-api/Cargo.toml",
+          "dependencies": [
+            "serde",
+            "serde-json",
+            "axum",
+            "serde",
+            "sdkwork-mahjong-match-repository-sqlx",
+            "sdkwork-mahjong-match-service",
+            "sdkwork-web-axum",
+            "sdkwork-web-contract",
+            "sdkwork-web-core",
+            "sdkwork-utils-rust",
+            "serde-json",
+            "sdkwork-web-bootstrap",
+            "sdkwork-iam-web-adapter",
+            "tokio",
+            "tower"
+          ]
+        },
+        {
+          "packageName": "sdkwork-routes-mahjong-backend-api",
+          "manifest": "crates/sdkwork-routes-mahjong-backend-api/Cargo.toml",
+          "dependencies": [
+            "serde",
+            "serde-json",
+            "axum",
+            "serde",
+            "sdkwork-mahjong-match-repository-sqlx",
+            "sdkwork-mahjong-match-service",
+            "sdkwork-web-axum",
+            "sdkwork-web-contract",
+            "sdkwork-web-core",
+            "sdkwork-utils-rust"
+          ]
+        }
+      ]
+    },
+    "routes": {
+      "manifests": [
+        {
+          "source": "sdks/_route-manifests/app-api/sdkwork-routes-mahjong-app-api.route-manifest.json",
+          "packageName": "sdkwork-routes-mahjong-app-api",
+          "surface": "app-api",
+          "routeCount": 2
+        },
+        {
+          "source": "sdks/_route-manifests/backend-api/sdkwork-routes-mahjong-backend-api.route-manifest.json",
+          "packageName": "sdkwork-routes-mahjong-backend-api",
+          "surface": "backend-api",
+          "routeCount": 1
+        }
+      ]
+    },
+    "runtime": {
+      "dependencyApiSurfaces": []
+    }
   },
   "env": {},
-  "requiresPlatformGatewayProcess": false,
+  "requiresPlatformApiSurface": false,
   "issues": [],
   "meta": {
     "resolver": "sdkwork-specs/tools/lib/composition-resolver.mjs",
