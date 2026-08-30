@@ -12,6 +12,7 @@ path = "src/lib.rs"
 axum.workspace = true
 tokio.workspace = true
 sdkwork-web-bootstrap.workspace = true
+sdkwork-web-core.workspace = true
 sdkwork_mahjong_match_repository_sqlx.workspace = true
 sdkwork_mahjong_match_service.workspace = true
 sdkwork_mahjong_database_host.workspace = true

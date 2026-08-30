@@ -16,7 +16,7 @@
     { "file": "DATABASE_SPEC_PROCESS_SHARED_POOL.md", "path": "../../../sdkwork-specs/DATABASE_SPEC_PROCESS_SHARED_POOL.md", "purpose": "Process-shared pool ownership." }
   ],
   "contracts": {
-    "layerRole": "infrastructure-host",
+    "layerRole": "runtime-service-host",
     "publicExports": ["."],
     "runtimeEntrypoints": ["bootstrap_mahjong_database_from_env"],
     "sdkDependencies": [],

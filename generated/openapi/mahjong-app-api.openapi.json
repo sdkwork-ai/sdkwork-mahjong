@@ -9,7 +9,7 @@
   "paths": {
     "/app/v3/api/mahjong/matches": {
       "get": {
-        "operationId": "mahjong.match.list",
+        "operationId": "match.list",
         "tags": [
           "mahjong"
         ],
@@ -36,12 +36,13 @@
               }
             }
           }
-        }
+        },
+        "parameters": []
       }
     },
     "/app/v3/api/mahjong/matches/{matchId}": {
       "get": {
-        "operationId": "mahjong.match.retrieve",
+        "operationId": "match.retrieve",
         "tags": [
           "mahjong"
         ],
@@ -144,7 +145,8 @@
           "totalItems": {
             "type": "string",
             "format": "int64",
-            "pattern": "^-?[0-9]+$"
+            "pattern": "^-?[0-9]+$",
+            "x-sdkwork-int64-string": true
           },
           "totalPages": {
             "type": "integer",
