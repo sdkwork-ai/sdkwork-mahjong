@@ -12,5 +12,7 @@ Profile env files for `specs/topology.spec.json` (`schemaVersion: 5`).
 | `cloud.test.env` | cloud.test |
 | `cloud.staging.env` | cloud.staging |
 | `cloud.production.env` | cloud.production |
+| `standalone.demo.env` | standalone.demo |
+| `cloud.demo.env` | cloud.demo |
 
 See `../sdkwork-specs/APP_RUNTIME_TOPOLOGY_SPEC.md`.
