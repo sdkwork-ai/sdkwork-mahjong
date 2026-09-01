@@ -1709,6 +1709,7 @@ dependencies = [
  "sdkwork-routes-mahjong-app-api",
  "sdkwork-routes-mahjong-backend-api",
  "sdkwork-web-bootstrap",
+ "sdkwork-web-core",
  "sqlx",
  "tokio",
  "tracing",
@@ -1778,7 +1779,6 @@ dependencies = [
  "serde_json",
  "sqlx",
  "thiserror",
- "tokio",
  "tracing",
 ]
 
