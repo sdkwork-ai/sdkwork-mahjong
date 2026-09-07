@@ -1,0 +1,13 @@
+environment = "demo"
+
+[http]
+
+[[http.server]]
+listen = ["80"]
+serverName = ["mahjong-demo.sdkwork.com", "mahjong-demo.birdcoder.com", "mahjong-demo.dtupay.com", "mahjong-demo.noaper.com", "mahjong-demo.sdkwork.cn", "mahjong-demo.birdcoder.cn", "mahjong-demo.dtupay.cn", "mahjong-demo.noaper.cn", "mahjong-demo.skubc.com", "mahjong-demo.skubc.cn", "mahjong-demo.zowalk.com", "mahjong-demo.zowalk.cn", "mahjong-demo.offer86.com", "mahjong-demo.offer86.cn", "mahjong-demo.86offer.com", "mahjong-demo.86offer.cn"]
+include = ["snippets/adaptive-web.named-locations.conf", "snippets/gateway-api-locations.nonproduction.conf"]
+
+[[http.server.location]]
+match = "/"
+include = ["snippets/adaptive-web.dispatch.conf"]
+
