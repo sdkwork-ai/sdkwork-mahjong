@@ -1,9 +1,13 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-mahjong-database-host"
 version.workspace = true
 edition.workspace = true
 description = "SDKWork Mahjong database lifecycle bootstrap."
 
+
+[lints]
+workspace = true
 [lib]
 name = "sdkwork_mahjong_database_host"
 path = "src/lib.rs"

@@ -1,4 +1,5 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-routes-mahjong-backend-api"
 version.workspace = true
 edition.workspace = true
@@ -6,6 +7,9 @@ license = "Apache-2.0"
 description = "SDKWork Mahjong match backend-api routes."
 build = "build.rs"
 
+
+[lints]
+workspace = true
 [lib]
 name = "sdkwork_routes_mahjong_backend_api"
 path = "src/lib.rs"

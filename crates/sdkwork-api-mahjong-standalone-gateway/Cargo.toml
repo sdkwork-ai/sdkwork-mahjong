@@ -1,4 +1,5 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-api-mahjong-standalone-gateway"
 version.workspace = true
 edition.workspace = true
@@ -19,3 +20,7 @@ sdkwork-utils-rust.workspace = true
 tokio.workspace = true
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+
+[lints]
+workspace = true
