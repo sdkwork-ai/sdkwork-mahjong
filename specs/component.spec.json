@@ -11,7 +11,7 @@
     "capability": "workspace",
     "languages": ["typescript", "rust"],
     "generated": false,
-    "manifests": ["package.json", "Cargo.toml", "sdkwork.app.config.json"]
+    "manifests": ["package.json", "Cargo.toml", "agent.app.config.json"]
   },
   "canonicalSpecs": [
     {

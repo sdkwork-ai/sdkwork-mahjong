@@ -22,15 +22,15 @@ Do not copy root standard text into this repository. If these relative paths do 
 
 ## Application Identity
 
-Root manifest: `sdkwork.app.config.json` (application code `mahjong`, domain `game`).
+Root manifest: `agent.app.config.json` (application code `mahjong`, domain `game`).
 
-Per-surface manifests live under `apps/sdkwork-mahjong-pc/sdkwork.app.config.json` and sibling app roots when added.
+Per-surface manifests live under `apps/sdkwork-mahjong-pc/agent.app.config.json` and sibling app roots when added.
 
 ## Local Dictionary Structure
 
 - `AGENTS.md`: local agent entrypoint and relative SDKWORK spec index.
 - `CLAUDE.md`, `GEMINI.md`, `CODEX.md`: tool compatibility shims pointing to `AGENTS.md`.
-- `sdkwork.app.config.json`: runtime/SDK wiring for the mahjong application.
+- `agent.app.config.json`: runtime/SDK wiring for the mahjong application.
 - `.sdkwork/`: source-controlled workspace metadata, skills, and plugins.
 - `specs/component.spec.json`: component-local contract and verification hooks.
 - `sdks/`: SDK families, route manifests, and generated SDK artifacts.
@@ -46,7 +46,7 @@ Per-surface manifests live under `apps/sdkwork-mahjong-pc/sdkwork.app.config.jso
 ## Spec Resolution Order
 
 1. Read this `AGENTS.md` and any nearer component-level `AGENTS.md`.
-2. Read `sdkwork.app.config.json` when present.
+2. Read `agent.app.config.json` when present.
 3. Read `specs/README.md` and `specs/component.spec.json` when present.
 4. Read `.sdkwork/README.md`, `.sdkwork/skills/`, and `.sdkwork/plugins/` when relevant.
 5. Read `../sdkwork-specs/README.md` and task-specific root specs.

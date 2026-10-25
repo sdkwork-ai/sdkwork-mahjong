@@ -7,9 +7,9 @@ import { isBlank, slugify } from '@sdkwork/utils';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-test('workspace exposes sdkwork.app.config.json with game domain', () => {
+test('workspace exposes agent.app.config.json with game domain', () => {
   const manifest = JSON.parse(
-    fs.readFileSync(path.join(root, 'sdkwork.app.config.json'), 'utf8'),
+    fs.readFileSync(path.join(root, 'agent.app.config.json'), 'utf8'),
   );
   assert.equal(manifest.app.domain, 'game');
   assert.ok(!isBlank(manifest.sdk.appSdkFamily));

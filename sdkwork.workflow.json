@@ -6,7 +6,7 @@
     "name": "SDKWork Mahjong",
     "repository": "sdkwork-ai/sdkwork-mahjong",
     "sourcePath": ".",
-    "configPath": "sdkwork.app.config.json"
+    "configPath": "agent.app.config.json"
   },
   "release": {
     "artifactPrefix": "sdkwork-mahjong",
