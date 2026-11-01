@@ -21,7 +21,7 @@ keys.txt
 **/target/
 .env.*
 !.env.*.example
-!.env.postgres.example
+!config/host/postgres.env.example
 **/dist/
 **/.pnpm-store/
 Thumbs.db
