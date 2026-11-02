@@ -135,8 +135,8 @@
   },
   "targets": [
     {
-      "id": "linux-x64-cloud-container-server-tar-gz",
-      "profile": "server",
+      "id": "linux-x64-cloud-container-tar-gz",
+      "profile": "container",
       "platform": "linux",
       "architecture": "x64",
       "formats": [
