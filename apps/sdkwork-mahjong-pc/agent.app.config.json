@@ -22,9 +22,12 @@
     "ownerMode": "tenant",
     "grantMode": "current",
     "platform": "WEB",
-    "appId": null,
+    "appId": "sdkwork-mahjong-pc",
     "organizationId": "0",
-    "tenantId": "100001"
+    "tenantId": "100001",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
   },
   "runtime": {
     "family": "server",
