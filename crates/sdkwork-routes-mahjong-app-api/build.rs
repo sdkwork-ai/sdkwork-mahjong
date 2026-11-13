@@ -23,6 +23,8 @@ struct RouteManifestRoute {
 #[derive(Deserialize)]
 struct RouteManifestAuth {
     mode: String,
+    #[serde(default)]
+    permission: Option<String>,
 }
 
 fn main() {
@@ -58,8 +60,14 @@ fn render_routes(routes: &[RouteManifestRoute]) -> String {
             other => panic!("unsupported auth mode: {other}"),
         };
         let tag = route.tags.first().map(String::as_str).unwrap_or("mahjong");
+        let permission = route
+            .auth
+            .permission
+            .as_deref()
+            .map(|permission| format!(".with_required_permission({permission:?})"))
+            .unwrap_or_default();
         output.push_str(&format!(
-            "    HttpRoute::new({method}, {:?}, {:?}, {:?}, {auth}){} ,\n",
+            "    HttpRoute::new({method}, {:?}, {:?}, {:?}, {auth}){}{} ,\n",
             route.path,
             tag,
             route.operation_id,
@@ -68,6 +76,7 @@ fn render_routes(routes: &[RouteManifestRoute]) -> String {
             } else {
                 ""
             },
+            permission,
         ));
     }
     output.push_str("];\n");
